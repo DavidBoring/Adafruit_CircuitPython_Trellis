@@ -23,10 +23,14 @@ pressed_buttons = set()
 while True:
     time.sleep(.1)
     just_pressed, released = trellis.read_buttons()
-        for b in just_pressed:
-        print('pressed:', b)
-        trellis.led[b] = True
-        print(trellis.led[b])
+    for buttonNumber in just_pressed:
+        print('pressed:', buttonNumber)
+        trellis.led[buttonNumber] = switchLED(buttonNumber)
 
-def switchLED():
-    break
+def switchLED(buttonNumber):
+    if trellis.led[buttonNumber] === True:
+        print(trellis.led[buttonNumber] + ' turned off')
+        return False
+    else:
+        return True
+        print(trellis.led[buttonNumber] + ' turned on')
