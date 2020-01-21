@@ -19,15 +19,31 @@ print('Turning all LEDs on...')
 trellis.led.fill(True)
 time.sleep(1)
 
+print('Flash outer buttons')
+trellis.led[0] = True
 trellis.led[1] = True
 trellis.led[2] = True
 trellis.led[3] = True
 trellis.led[4] = True
-time.sleep(1)
-trellis.led.fill(True)
-
-trellis.led[5] = True
-trellis.led[6] = True
 trellis.led[7] = True
 trellis.led[8] = True
+trellis.led[11] = True
+trellis.led[12] = True
+trellis.led[13] = True
+trellis.led[14] = True
+trellis.led[15] = True
+time.sleep(.1)
+trellis.led.fill(True)
+time.sleep(.1)
+
+print('Flush inner buttons')
+trellis.led[5] = True
+trellis.led[6] = True
+trellis.led[9] = True
+trellis.led[11] = True
+time.sleep(.1)
+trellis.led.fill(True)
+time.sleep(.1)
+
+
 time.sleep(1)
