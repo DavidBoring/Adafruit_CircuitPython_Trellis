@@ -16,10 +16,8 @@ trellis = Trellis(i2c)  # 0x70 when no I2C address is supplied
 
 # Turn on every LED
 def innerOuter(times):
-    for i in range(times - 1):
-        print('Turning all LEDs on...')
-        trellis.led.fill(True)
-        time.sleep(.5)
+    for i in range(times):
+        print('Turning all LEDs off...')
         trellis.led.fill(False)
 
         print('Flash outer buttons')
@@ -37,7 +35,7 @@ def innerOuter(times):
         trellis.led[15] = True
         time.sleep(.1)
         trellis.led.fill(False)
-        time.sleep(.1)
+        # time.sleep(.1)
 
         print('Flush inner buttons')
         trellis.led[5] = True
@@ -46,4 +44,4 @@ def innerOuter(times):
         trellis.led[10] = True
         time.sleep(.1)
         trellis.led.fill(False)
-        time.sleep(.1)
+        # time.sleep(.1)

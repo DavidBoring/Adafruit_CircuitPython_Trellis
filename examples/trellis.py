@@ -2,7 +2,7 @@ import time
 import busio
 from board import SCL, SDA
 from adafruit_trellis import Trellis
-imoprt flashes
+import flashes
 
 # Create the I2C interface
 i2c = busio.I2C(SCL, SDA)
