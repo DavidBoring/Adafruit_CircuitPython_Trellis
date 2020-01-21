@@ -25,10 +25,11 @@ while True:
     just_pressed, released = trellis.read_buttons()
     for buttonNumber in just_pressed:
         print('pressed:', buttonNumber)
-        trellis.led[buttonNumber] = switchLED(buttonNumber)
+        newState = switchLED(buttonNumber)
+        trellis.led[buttonNumber] = newState
 
 def switchLED(buttonNumber):
-    if trellis.led[buttonNumber] === True:
+    if trellis.led[buttonNumber] == True:
         print(trellis.led[buttonNumber] + ' turned off')
         return False
     else:
