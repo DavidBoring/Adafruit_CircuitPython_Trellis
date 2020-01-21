@@ -2,6 +2,7 @@ import time
 import busio
 from board import SCL, SDA
 from adafruit_trellis import Trellis
+imoprt flashes
 
 # Create the I2C interface
 i2c = busio.I2C(SCL, SDA)
@@ -15,35 +16,4 @@ trellis = Trellis(i2c)  # 0x70 when no I2C address is supplied
 # method afterwards to send updates to the Trellis board.
 
 # Turn on every LED
-print('Turning all LEDs on...')
-trellis.led.fill(True)
-time.sleep(1)
-
-print('Flash outer buttons')
-trellis.led[0] = True
-trellis.led[1] = True
-trellis.led[2] = True
-trellis.led[3] = True
-trellis.led[4] = True
-trellis.led[7] = True
-trellis.led[8] = True
-trellis.led[11] = True
-trellis.led[12] = True
-trellis.led[13] = True
-trellis.led[14] = True
-trellis.led[15] = True
-time.sleep(.1)
-trellis.led.fill(True)
-time.sleep(.1)
-
-print('Flush inner buttons')
-trellis.led[5] = True
-trellis.led[6] = True
-trellis.led[9] = True
-trellis.led[11] = True
-time.sleep(.1)
-trellis.led.fill(True)
-time.sleep(.1)
-
-
-time.sleep(1)
+flashes.innerOuter(2)
