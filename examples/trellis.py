@@ -17,3 +17,16 @@ trellis = Trellis(i2c)  # 0x70 when no I2C address is supplied
 
 # Turn on every LED
 flashes.innerOuter(2)
+time.sleep(.5)
+print('Starting button sensory loop...')
+pressed_buttons = set()
+while True:
+    time.sleep(.1)
+    just_pressed, released = trellis.read_buttons()
+        for b in just_pressed:
+        print('pressed:', b)
+        trellis.led[b] = True
+        print(trellis.led[b])
+
+def switchLED():
+    break
