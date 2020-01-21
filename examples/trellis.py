@@ -17,11 +17,11 @@ trellis = Trellis(i2c)  # 0x70 when no I2C address is supplied
 
 def switchLED(buttonNumber):
     if trellis.led[buttonNumber] == True:
-        print('Button: ' + buttonNumber + ' turned off')
+        print('Button: ' + str(buttonNumber) + ' turned off')
         return False
     else:
         return True
-        print('Button: ' + trellis.led[buttonNumber] + ' turned on')
+        print('Button: ' + str(buttonNumber) + ' turned on')
 
 
 # Turn on every LED
