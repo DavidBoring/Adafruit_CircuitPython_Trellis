@@ -15,6 +15,15 @@ trellis = Trellis(i2c)  # 0x70 when no I2C address is supplied
 # set 'auto_show' to 'False', you will have to call the 'show()'
 # method afterwards to send updates to the Trellis board.
 
+def switchLED(buttonNumber):
+    if trellis.led[buttonNumber] == True:
+        print(trellis.led[buttonNumber] + ' turned off')
+        return False
+    else:
+        return True
+        print(trellis.led[buttonNumber] + ' turned on')
+
+
 # Turn on every LED
 flashes.innerOuter(2)
 time.sleep(.5)
@@ -28,10 +37,3 @@ while True:
         newState = switchLED(buttonNumber)
         trellis.led[buttonNumber] = newState
 
-def switchLED(buttonNumber):
-    if trellis.led[buttonNumber] == True:
-        print(trellis.led[buttonNumber] + ' turned off')
-        return False
-    else:
-        return True
-        print(trellis.led[buttonNumber] + ' turned on')
